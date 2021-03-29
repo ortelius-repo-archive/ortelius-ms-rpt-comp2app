@@ -1,0 +1,44 @@
+nameOverride: ""
+fullnameOverride: ""
+
+replicaCount: 1
+
+image:
+  # TODO - update image params when image is pushed to repo.
+  repository: quay.io/ortelius/ms-rpt-comp2app
+  #digest: 
+  tag: dev-v9.0.0.10-gc0a82a4
+
+service:
+  type: ClusterIP
+  portName: comp2app-port
+  exposedPort: 5000
+  targetPort: 5000
+
+envVars: {}
+  # DB_HOST: "localhost"
+  # DB_NAME: "postgres"
+
+secrets: {}
+  # env2app-db-creds:
+  #   data:
+  #     DB_USER: "postgres"
+  #     DB_PASS: "postgres"
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+livenessProbe: {}
+  # httpGet:
+  #   path: /msapi/comp2app
+  #   port: comp2app-port
+
+readinessProbe:
+  # httpGet:
+  #   path: /msapi/comp2app
+  #   port: comp2app-port
